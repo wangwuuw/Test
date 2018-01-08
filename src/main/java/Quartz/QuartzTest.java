@@ -8,7 +8,7 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 public class QuartzTest {
     public static void main(String[] args) {
         try {
-            //创建scheduler
+            //创建scheduler测试
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
             //定义一个Trigger
