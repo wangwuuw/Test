@@ -6,10 +6,6 @@ public class Test implements Runnable{
 
     public static void main(String[] args) {
         Test test = new Test();
-//        test.start();
-//        Thread t1 = new Thread(test);
-//        t1.start();
-//        Thread t2 = new Thread(test);
-//        t2.start();
+        System.out.println("版本1");
     }
 }
