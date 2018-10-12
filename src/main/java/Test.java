@@ -6,6 +6,6 @@ public class Test implements Runnable{
 
     public static void main(String[] args) {
         Test test = new Test();
-        System.out.println("版本3。0");
+        System.out.println("版本4。0");
     }
 }
