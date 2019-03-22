@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 手写hhashMap1.8
+ * @param <K>
+ * @param <V>
+ */
 public class ExtHashMap<K,V> {
     static final float DEFAULT_LOAD_FACTOR = 0.75f;
     final float loadFactor;
@@ -65,6 +70,7 @@ public class ExtHashMap<K,V> {
         if (srcNode == null) {
             //为null说明没有node，直接给该下标数组赋值
             srcNode = new Node<K,V>(hash,key,value,null);
+            table[index]=srcNode;
         }else{
             //不为null说明已经有node
             K k;Node<K,V> tempNode;
@@ -84,19 +90,22 @@ public class ExtHashMap<K,V> {
                     }
                     srcNode = tempNode;
                 }
-                if (tempNode != null) {
-                    V oldValue = tempNode.value;
-                    tempNode.value= value;
-                    return oldValue;
-                }
-
-
+            }
+            if (tempNode != null) {
+                V oldValue = tempNode.value;
+                tempNode.value= value;
+                return oldValue;
             }
         }
+
         return null;
     }
         public static void main(String[] args) {
-        HashMap<Object, Object> map = new HashMap<>();
+            ExtHashMap<Object, Object> map = new ExtHashMap<Object,Object>();
+            Object value = map.put("11", "12");
+            System.out.println(value);
+            Object value2 = map.put("11", "12");
+            System.out.println(value2);
 //        map.put(1,1);
 //        Object o = map.get(1);
 //            System.out.println(22%10);
