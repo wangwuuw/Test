@@ -69,7 +69,7 @@ public class ExtHashMap<K,V> {
           //判断 是否为null
         if (srcNode == null) {
             //为null说明没有node，直接给该下标数组赋值
-            srcNode = new Node<K,V>(hash,key,value,null);
+            srcNode = new Node<K,V>(hash,key,value,null);//怪不得呢 src重新赋值了
             table[index]=srcNode;
         }else{
             //不为null说明已经有node
@@ -92,23 +92,30 @@ public class ExtHashMap<K,V> {
                 }
             }
             if (tempNode != null) {
-                V oldValue = tempNode.value;
-                tempNode.value= value;
-                return oldValue;
+                V oldValue = tempNode.value; //oldValue和tempNode.value指向同一个老值
+                tempNode.value= value;//tempNode.value改变指向新值
+                return oldValue;//返回老值
             }
         }
 
         return null;
     }
+    public V get(K v){
+
+        return null;
+    }
         public static void main(String[] args) {
-            ExtHashMap<Object, Object> map = new ExtHashMap<Object,Object>();
-            Object value = map.put("11", "12");
-            System.out.println(value);
-            Object value2 = map.put("11", "12");
-            System.out.println(value2);
-//        map.put(1,1);
-//        Object o = map.get(1);
-//            System.out.println(22%10);
+            HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
+            objectObjectHashMap.put(1,1);
+
+
+
+//            ExtHashMap<Object, Object> map = new ExtHashMap<Object,Object>();
+//            Object value = map.put("11", "13");
+//            System.out.println(value);
+//            Object value2 = map.put("11", "12");
+//            System.out.println(value2);
+
 
         }
 
